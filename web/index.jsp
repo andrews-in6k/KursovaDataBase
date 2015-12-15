@@ -1,3 +1,5 @@
+<%@ page import="entity.Rooms" %>
+<%@ page import="dao.RoomsDAO" %>
 <%--
   Created by IntelliJ IDEA.
   User: ANRI
@@ -11,6 +13,6 @@
     <title>Склад</title>
   </head>
   <body>
-
+  
   </body>
 </html>

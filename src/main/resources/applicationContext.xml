@@ -35,4 +35,10 @@
        </bean>
 
        <tx:annotation-driven proxy-target-class="true" transaction-manager="transactionManager"/>
+
+       <bean id="daoCirculation" class="dao.CirculationDAO"/>
+       <bean id="daoGoods" class="dao.GoodsDAO"/>
+       <bean id="daoRenters" class="dao.RentersDAO"/>
+       <bean id="daoRentTerms" class="dao.RentTermsDAO"/>
+       <bean id="daoRooms" class="dao.RoomsDAO"/>
 </beans>
