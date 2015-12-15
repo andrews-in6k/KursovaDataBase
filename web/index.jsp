@@ -13,6 +13,6 @@
     <title>Склад</title>
   </head>
   <body>
-  
+
   </body>
 </html>
