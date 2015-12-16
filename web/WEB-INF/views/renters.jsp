@@ -30,7 +30,7 @@
         <td align="center">${renter.name}</td>
         <td align="center">${renter.surname}</td>
         <td align="center">${renter.phoneNumber}</td>
-        <td align="center"><a href="/renters/${renter.id}/edit"><img src="/resources/images/edit.png"></a> </td>
+        <td align="center"><a href="/renters/${renter.id}/edit"><img src="/resources/images/edit.png"></a></td>
 
         <form method="post" action="/renters/${renter.id}">
           <input type="hidden" name="_method" value="DELETE">

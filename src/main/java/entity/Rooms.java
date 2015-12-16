@@ -24,6 +24,9 @@ public class Rooms {
 	@OneToMany(fetch = FetchType.EAGER, mappedBy="room")
 	private List<Goods> goods;
 
+	@OneToMany(fetch = FetchType.EAGER, mappedBy="room")
+	private List<RentTerms> rentTerms;
+
 	public int getId() {
 		return id;
 	}
@@ -63,5 +66,12 @@ public class Rooms {
 	public void setGoods(List<Goods> goods) {
 		this.goods = goods;
 	}
-	
+
+	public List<RentTerms> getRentTerms() {
+		return rentTerms;
+	}
+
+	public void setRentTerms(List<RentTerms> rentTerms) {
+		this.rentTerms = rentTerms;
+	}
 }

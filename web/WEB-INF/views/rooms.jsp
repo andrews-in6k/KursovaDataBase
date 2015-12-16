@@ -30,10 +30,39 @@
         <td align="center">${room.roomNumber}</td>
         <td align="center">${room.size}</td>
         <td align="center">${room.renter.surname} ${room.renter.name}</td>
-        <td align="center">delete</td>
+
+        <form method="post" action="/rooms/${room.id}">
+          <input type="hidden" name="_method" value="DELETE">
+          <td align="center">
+            <input type="image" src="/resources/images/icon-delete.gif" alt="del">
+          </td>
+        </form>
       </tr>
     </c:forEach>
 
   </table>
+
+  <div align="center">
+    <form method="post" action="/rooms">
+      <table align="center" class="table">
+        <tr>
+          <td>
+            <label for="number">Номер</label>
+            <input type="number" name="number" id="number" value="0" class="form-control">
+          </td>
+          <td>
+            <label for="size">Розмір</label>
+            <input type="number" name="size" id="size" value="0" class="form-control">
+          </td>
+        </tr>
+
+        <tr>
+          <td colspan="3" align="right">
+            <input type="submit" name="add" value="Додати"  class="btn btn-default">
+          </td>
+        </tr>
+      </table>
+    </form>
+  </div>
 </body>
 </html>
