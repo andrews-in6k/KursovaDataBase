@@ -34,7 +34,46 @@
         <td align="center">${rentTerm.renter.surname} ${rentTerm.renter.name}</td>
       </tr>
     </c:forEach>
-
+    
   </table>
+
+  <div align="center">
+    <form method="post" action="/rentterms">
+      <table align="center" class="table">
+        <tr>
+          <td>
+            <label for="startDate">Почато</label>
+            <input type="date" name="startDate" id="startDate" class="form-control">
+          </td>
+          <td>
+            <label for="finishDate">Кінець</label>
+            <input type="date" name="finishDate" id="finishDate" class="form-control">
+          </td>
+          <td>
+            <label for="roomSelect">Кімната</label>
+            <select size="1" name="roomSelect" id="roomSelect" class="form-control">
+              <c:forEach var="room" items="${rooms}">
+                <option value="${room.id}">${room.roomNumber}</option>
+              </c:forEach>
+            </select>
+          </td>
+          <td>
+            <label for="renterSelect">Орендар</label>
+            <select size="1" name="renterSelect" id="renterSelect" class="form-control">
+              <c:forEach var="renter" items="${renters}">
+                <option value="${renter.id}">${renter.surname} ${renter.name}</option>
+              </c:forEach>
+            </select>
+          </td>
+        </tr>
+
+        <tr>
+          <td colspan="4" align="right">
+            <input type="submit" name="add" value="Додати"  class="btn btn-default">
+          </td>
+        </tr>
+      </table>
+    </form>
+  </div>
 </body>
 </html>
