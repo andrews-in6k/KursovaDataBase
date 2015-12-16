@@ -1,7 +1,9 @@
 package services;
 
 import dao.RentersDAO;
+import entity.RentTerms;
 import entity.Renters;
+import entity.Rooms;
 
 import java.util.List;
 
@@ -10,9 +12,13 @@ import java.util.List;
  */
 public class RentersService implements RentersServiceInterface {
     private RentersDAO rentersDAO;
+    private RoomsService roomsService;
+    private RentTermsService rentTermsService;
 
-    public RentersService(RentersDAO rentersDAO) {
+    public RentersService(RentersDAO rentersDAO, RoomsService roomsService, RentTermsService rentTermsService) {
         this.rentersDAO = rentersDAO;
+        this.roomsService = roomsService;
+        this.rentTermsService = rentTermsService;
     }
 
     @Override
@@ -32,6 +38,16 @@ public class RentersService implements RentersServiceInterface {
 
     @Override
     public void removeRenters(Renters renters) {
+        for (RentTerms rentTerm : renters.getRentTerms()) {
+            rentTermsService.removeRentTerms(rentTerm);
+        }
+
+        for (Rooms room : renters.getRooms()) {
+            room.setRenter(null);
+
+            roomsService.updateRooms(room);
+        }
+
         rentersDAO.delete(renters);
     }
 
@@ -42,6 +58,16 @@ public class RentersService implements RentersServiceInterface {
 
     @Override
     public void removeRentersById(int id) {
+        for (RentTerms rentTerm : getRentersById(id).getRentTerms()) {
+            rentTermsService.removeRentTerms(rentTerm);
+        }
+
+        for (Rooms room : getRentersById(id).getRooms()) {
+            room.setRenter(null);
+
+            roomsService.updateRooms(room);
+        }
+
         rentersDAO.delete(rentersDAO.getById(id));
     }
 }

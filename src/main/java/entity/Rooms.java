@@ -2,16 +2,7 @@ package entity;
 
 import java.util.List;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name="rooms")
@@ -30,7 +21,7 @@ public class Rooms {
 	@JoinColumn(name = "renter_id")
 	private Renters renter;
 
-	@OneToMany(mappedBy="room")
+	@OneToMany(fetch = FetchType.EAGER, mappedBy="room")
 	private List<Goods> goods;
 
 	public int getId() {

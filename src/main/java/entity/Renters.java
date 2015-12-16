@@ -2,13 +2,7 @@ package entity;
 
 import java.util.List;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name="renters")
@@ -25,8 +19,11 @@ public class Renters {
 	@Column(name="phone_number")
 	private int phoneNumber;
 	
-	@OneToMany(mappedBy="renter")
+	@OneToMany(fetch = FetchType.EAGER, mappedBy="renter")
 	private List<Rooms> rooms;
+
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "renter")
+	private List<RentTerms> rentTerms;
 
 	public int getId() {
 		return id;
@@ -67,5 +64,12 @@ public class Renters {
 	public void setRooms(List<Rooms> rooms) {
 		this.rooms = rooms;
 	}
-	
+
+	public List<RentTerms> getRentTerms() {
+		return rentTerms;
+	}
+
+	public void setRentTerms(List<RentTerms> rentTerms) {
+		this.rentTerms = rentTerms;
+	}
 }

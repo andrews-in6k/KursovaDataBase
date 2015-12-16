@@ -51,6 +51,8 @@
     </bean>
     <bean id="rentersService" class="services.RentersService">
         <constructor-arg ref="daoRenters"/>
+        <constructor-arg ref="roomsService"/>
+        <constructor-arg ref="rentTermsService"/>
     </bean>
     <bean id="rentTermsService" class="services.RentTermsService">
         <constructor-arg ref="daoRentTerms"/>
