@@ -15,7 +15,28 @@
   <link rel="stylesheet" href="/resources/css/bootstrap.min.css">
   <link rel="stylesheet" href="/resources/styles/style.css">
 </head>
-<body>
+<body id="framebody">
+  <table align="center" class="table table-striped table-bordered">
+    <th colspan="6">Товари</th>
 
+    <tr>
+      <th>Назва</th>
+      <th>Кількість</th>
+      <th>Одиниця виміру</th>
+      <th>№ кімнати</th>
+    </tr>
+
+    <c:forEach var="good" items="${goods}">
+      <tr>
+        <td align="center">${good.name}</td>
+        <td align="center">${good.amount}</td>
+        <td align="center">${good.measureValue}</td>
+        <td align="center">${good.room.roomNumber}</td>
+        <td align="center">edit</td>
+        <td align="center">delete</td>
+      </tr>
+    </c:forEach>
+
+  </table>
 </body>
 </html>

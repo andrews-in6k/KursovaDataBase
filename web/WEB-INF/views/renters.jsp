@@ -15,7 +15,26 @@
   <link rel="stylesheet" href="/resources/css/bootstrap.min.css">
   <link rel="stylesheet" href="/resources/styles/style.css">
 </head>
-<body>
+<body id="framebody">
+  <table align="center" class="table table-striped table-bordered">
+    <th colspan="5">Орендарі</th>
 
+    <tr>
+      <th>Ім’я</th>
+      <th>Прізвище</th>
+      <th>Номер телефону</th>
+    </tr>
+
+    <c:forEach var="renter" items="${renters}">
+      <tr>
+        <td align="center">${renter.name}</td>
+        <td align="center">${renter.surname}</td>
+        <td align="center">${renter.phoneNumber}</td>
+        <td align="center">edit</td>
+        <td align="center">delete</td>
+      </tr>
+    </c:forEach>
+
+  </table>
 </body>
 </html>

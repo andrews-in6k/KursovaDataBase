@@ -15,7 +15,26 @@
   <link rel="stylesheet" href="/resources/css/bootstrap.min.css">
   <link rel="stylesheet" href="/resources/styles/style.css">
 </head>
-<body>
+<body id="framebody">
+  <table align="center" class="table table-striped table-bordered">
+    <th colspan="4">Строки оренди</th>
 
+    <tr>
+      <th>Початок</th>
+      <th>Кінець</th>
+      <th>№ кімнати</th>
+      <th>Орендар</th>
+    </tr>
+
+    <c:forEach var="rentTerm" items="${rentTerms}">
+      <tr>
+        <td align="center">${rentTerm.startDate}</td>
+        <td align="center">${rentTerm.finishDate}</td>
+        <td align="center">${rentTerm.room.roomNumber}</td>
+        <td align="center">${rentTerm.renter.surname} ${rentTerm.renter.name}</td>
+      </tr>
+    </c:forEach>
+
+  </table>
 </body>
 </html>

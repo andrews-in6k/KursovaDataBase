@@ -15,7 +15,25 @@
   <link rel="stylesheet" href="/resources/css/bootstrap.min.css">
   <link rel="stylesheet" href="/resources/styles/style.css">
 </head>
-<body>
+<body id="framebody">
+  <table align="center" class="table table-striped table-bordered">
+    <th colspan="4">Кімнати</th>
 
+    <tr>
+      <th>№ кімнати</th>
+      <th>Розмір</th>
+      <th>Орендар</th>
+    </tr>
+
+    <c:forEach var="room" items="${rooms}">
+      <tr>
+        <td align="center">${room.roomNumber}</td>
+        <td align="center">${room.size}</td>
+        <td align="center">${room.renter.surname} ${room.renter.name}</td>
+        <td align="center">delete</td>
+      </tr>
+    </c:forEach>
+
+  </table>
 </body>
 </html>

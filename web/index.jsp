@@ -44,20 +44,20 @@
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Обіг<span class="caret"></span></a>
               <ul class="dropdown-menu">
                 <li><a href="/circulation" target="iframe">Обіг</a></li>
-                <li><a href="#" target="iframe">Товари</a></li>
+                <li><a href="/goods" target="iframe">Товари</a></li>
               </ul>
             </li>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Оренда<span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li><a href="#" target="iframe">Орендарі</a></li>
-                <li><a href="#" target="iframe">Строки оренди</a></li>
+                <li><a href="/renters" target="iframe">Орендарі</a></li>
+                <li><a href="/rentterms" target="iframe">Строки оренди</a></li>
               </ul>
             </li>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Кімнати<span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li><a href="#" target="iframe">Кімнати</a></li>
+                <li><a href="/rooms" target="iframe">Кімнати</a></li>
               </ul>
             </li>
           </ul>
@@ -65,7 +65,7 @@
       </div>
     </nav>
 
-    <iframe src="/circulation" name="iframe" id="iframe" width="100%" onload="myFunc()"></iframe>
+    <iframe src="/rooms" name="iframe" id="iframe" width="100%" onload="myFunc()"></iframe>
 
   </div>
   </body>
