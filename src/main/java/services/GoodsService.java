@@ -1,6 +1,7 @@
 package services;
 
 import dao.GoodsDAO;
+import entity.Circulation;
 import entity.Goods;
 
 import java.util.List;
@@ -10,9 +11,11 @@ import java.util.List;
  */
 public class GoodsService implements GoodsServiceInterface {
     private GoodsDAO goodsDAO;
+    private CirculationService circulationService;
 
-    public GoodsService(GoodsDAO goodsDAO) {
+    public GoodsService(GoodsDAO goodsDAO, CirculationService circulationService) {
         this.goodsDAO = goodsDAO;
+        this.circulationService = circulationService;
     }
 
     @Override
@@ -32,6 +35,10 @@ public class GoodsService implements GoodsServiceInterface {
 
     @Override
     public void removeGoods(Goods goods) {
+        for (Circulation circulation : goods.getCirculations()) {
+            circulationService.removeCirculation(circulation);
+        }
+
         goodsDAO.delete(goods);
     }
 
@@ -42,6 +49,10 @@ public class GoodsService implements GoodsServiceInterface {
 
     @Override
     public void removeGoodsById(int id) {
+        for (Circulation circulation : getGoodsById(id).getCirculations()) {
+            circulationService.removeCirculation(circulation);
+        }
+
         goodsDAO.delete(goodsDAO.getById(id));
     }
 }

@@ -32,9 +32,37 @@
         <td align="center">${good.amount}</td>
         <td align="center">${good.measureValue}</td>
         <td align="center">${good.room.roomNumber}</td>
-        <td align="center">edit</td>
-        <td align="center">delete</td>
+        <td align="center"><a href="/goods/${good.id}/edit"><img src="/resources/images/edit.png"></a> </td>
+
+        <form method="post" action="/goods/${good.id}">
+          <input type="hidden" name="_method" value="DELETE">
+          <td align="center">
+            <input type="image" src="/resources/images/icon-delete.gif" alt="del">
+          </td>
+        </form>
+
       </tr>
+
+      <c:if test="${edit != null && edit == good.id}">
+        <form method="post" action="/goods/${good.id}">
+          <input type="hidden" name="_method" value="PUT">
+
+          <tr>
+            <td><input type="text" name="goodsName" value="${good.name}" class="form-control"></td>
+            <td></td>
+            <td><input type="text" name="measureValue" value="${good.measureValue}" class="form-control"></td>
+            <td>
+              <select size="1" name="roomSelect" class="form-control">
+                <c:forEach var="room" items="${rooms}">
+                  <option value="${room.id}">${room.roomNumber}</option>
+                </c:forEach>
+              </select>
+            </td>
+            <td><input type="submit" name="save" value="Зберегти" class="btn btn-default"></td>
+          </tr>
+
+        </form>
+      </c:if>
     </c:forEach>
 
   </table>
